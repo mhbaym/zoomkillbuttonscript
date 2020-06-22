@@ -1,0 +1,97 @@
+{
+  "title": "Button kills Zoom",
+  "rules": [
+    {
+      "description": "F17 to Command-W, enter",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "f17"
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+            	{
+            	"key_code": 40
+            	}
+            ],
+            "to_if_canceled": [
+            	{
+            	"key_code": 40
+            	}
+            ]
+        	},
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "F18 to open and quit zoom, Enter",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f18"
+          },
+          "to": [
+            { 
+            "shell_command": "open -a zoom.us;osascript -e 'tell application \"zoom.us\" to quit'"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+            	{
+            	"key_code": 40
+            	}
+            ],
+            "to_if_canceled": [
+            	{
+            	"key_code": 40
+            	}
+            ]
+        	}
+          
+          
+        }
+      ]
+    },
+    {
+      "description": "F19 to Sound, open and quit zoom, Enter",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f19"
+          },
+          "to": [
+            { 
+            "shell_command": "open -a zoom.us;osascript -e 'tell application \"zoom.us\" to quit';afplay ~/Downloads/Ahooga.mp3"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+            	{
+            	"key_code": 40
+            	}
+            ],
+            "to_if_canceled": [
+            	{
+              	"key_code": 40
+            	}
+            ]
+        	},
+    		"parameters": {
+        		"basic.to_delayed_action_delay_milliseconds": 1000
+    		} 
+        }
+      ]
+    }
+  ]
+}
